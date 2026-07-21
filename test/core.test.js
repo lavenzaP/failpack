@@ -27,7 +27,9 @@ test("parses wrapper options and preserves command arguments", () => {
     version: false,
   });
   assert.throws(() => parseArgs(["--wat", "npm"]), /Unknown option/);
+  assert.throws(() => parseArgs(["--output", "--", "npm"]), /requires a file path/);
   assert.throws(() => parseArgs(["--max-output", "0", "--", "npm"]), /positive number/);
+  assert.deepEqual(parseArgs(["--", "tool", "--output", "its-own-file.txt"]).commandArgs, ["--output", "its-own-file.txt"]);
 });
 
 test("redacts common credentials and personal paths", () => {

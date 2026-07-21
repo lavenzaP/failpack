@@ -132,7 +132,9 @@ export function parseArgs(argv) {
       continue;
     }
     if (argument === "--output" || argument === "-o") {
-      options.output = argv[index + 1] || "";
+      const output = argv[index + 1];
+      if (!output || output === "--") throw new Error("--output requires a file path");
+      options.output = output;
       index += 1;
       continue;
     }
@@ -160,9 +162,6 @@ export function parseArgs(argv) {
     break;
   }
 
-  if ((argv.includes("--output") || argv.includes("-o")) && !options.output) {
-    throw new Error("--output requires a file path");
-  }
   return options;
 }
 
