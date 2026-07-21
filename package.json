@@ -1,0 +1,40 @@
+{
+  "name": "failpack",
+  "version": "0.1.0",
+  "description": "Turn a failed command into a sanitized, shareable bug report.",
+  "type": "module",
+  "bin": {
+    "failpack": "bin/failpack.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check bin/failpack.js && node --check src/core.js",
+    "pack:check": "npm pack --dry-run"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "bug-report",
+    "debugging",
+    "cli",
+    "reproducibility",
+    "support-bundle",
+    "redaction"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lavenzaP/failpack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lavenzaP/failpack/issues"
+  },
+  "homepage": "https://github.com/lavenzaP/failpack#readme",
+  "license": "MIT"
+}
